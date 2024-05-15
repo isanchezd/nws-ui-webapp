@@ -1,0 +1,8 @@
+@import './reset.css';
+@import './fonts.css';
+@import './tokens.css';
+
+
+body {
+    font-family: var(--main-font);
+}
