@@ -4,12 +4,12 @@ import { useEffect } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import { useTheme } from "./hooks/useTheme";
-import Init from "./init/Init";
+import StartView from "./start/StartView";
 
 const router = createBrowserRouter([
 	{
 		path: "/",
-		element: <Init />,
+		element: <StartView />,
 	},
 ]);
 
@@ -20,7 +20,11 @@ function App() {
 		document.documentElement.setAttribute("theme", theme);
 	}, [theme]);
 
-	return <RouterProvider router={router} />;
+	return (
+		<main>
+			<RouterProvider router={router} />
+		</main>
+	);
 }
 
 export default App;

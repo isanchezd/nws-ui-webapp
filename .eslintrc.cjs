@@ -5,6 +5,9 @@ module.exports = {
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:react-hooks/recommended',
+    'plugin:import/errors',
+    'plugin:import/warnings',
+    'plugin:import/typescript',
     "eslint-config-codely/typescript"
   ],
   overrides: [
@@ -22,6 +25,18 @@ module.exports = {
     'react-refresh/only-export-components': [
       'warn',
       { allowConstantExport: true },
+    ],
+    // Ignorar importaciones de SVG con el modificador `?react`
+    'import/no-unresolved': [2, { ignore: ['\\.svg\\?react$'] }],
+  },
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx', '.svg'],
+      },
+    },
+    'import/ignore': [
+      '\\.svg\\?react$', // Ignorar las importaciones de SVG con el modificador `?react`
     ],
   },
 }
