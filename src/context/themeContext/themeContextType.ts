@@ -1,4 +1,4 @@
-import { Themes } from "../enums/theme";
+import { Themes } from "../../enums/theme";
 
 export interface ThemeContextType {
 	theme: Themes;
