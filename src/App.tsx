@@ -5,6 +5,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import { useTheme } from "./hooks/useTheme";
 import StartView from "./start/StartView";
+import AudioPlayer from "./components/audioPlayer.tsx";
+import SoundProvider from "./providers/soundProvider.tsx";
 
 const router = createBrowserRouter([
 	{
@@ -22,7 +24,10 @@ function App() {
 
 	return (
 		<main>
-			<RouterProvider router={router} />
+			<SoundProvider>
+				<RouterProvider router={router} />
+				<AudioPlayer />
+			</SoundProvider>
 		</main>
 	);
 }
