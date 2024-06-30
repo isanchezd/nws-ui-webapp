@@ -1,6 +1,6 @@
 import { createContext } from "react";
 
-import { Action, Sound, SoundContextType } from "./soundContextType";
+import { Action, Sound, SoundContextType } from "./sound-context-type.ts";
 
 const INITIAL_VALUE: SoundContextType = {
 	sound: {} as Sound,

@@ -1,12 +1,12 @@
-import "./App.css";
+import "./app.css";
 
 import { useEffect } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import { useTheme } from "./hooks/useTheme";
-import StartView from "./start/StartView";
-import AudioPlayer from "./components/audioPlayer.tsx";
-import SoundProvider from "./providers/soundProvider.tsx";
+import StartView from "./start/start-view.tsx";
+import AudioPlayer from "./components/audio-player.tsx";
+import SoundProvider from "./providers/sound-provider.tsx";
 
 const router = createBrowserRouter([
 	{

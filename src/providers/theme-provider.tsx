@@ -1,6 +1,6 @@
 import { ReactElement, ReactNode, useState } from "react";
 
-import { ThemeContext } from "../context/themeContext/themeContext";
+import { ThemeContext } from "../context/theme-context/theme-context.ts";
 
 enum Themes {
 	light = "light",

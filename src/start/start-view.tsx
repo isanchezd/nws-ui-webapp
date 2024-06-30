@@ -1,17 +1,16 @@
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 
 import { BIcon, EllipseIcon, HomeIcon } from "../icons";
-import styles from "./StartView.module.css";
+import styles from "./start-view.module.css";
 
 const INITIAL_LOADER_STATE = [false, false, false];
 
 function StartView() {
 	const [loader, setLoader] = useState<boolean[]>(INITIAL_LOADER_STATE);
-	const [action, setAction] = useState<boolean>(false);
 
 	useEffect(() => {
-		handleLoader(loader, setLoader, action);
-	}, [action]);
+		handleLoader(loader, setLoader, true);
+	}, []);
 
 	return (
 		<section className={`${styles.section}`}>

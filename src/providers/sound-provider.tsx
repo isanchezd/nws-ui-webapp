@@ -1,8 +1,8 @@
 import { ReactNode, useEffect, useState } from "react";
 
 import { AUDIO_ACTIONS, AUDIOS } from "../constants/audios.ts";
-import { SoundContext } from "../context/soundContext/soundContext";
-import { Action, Sound } from "../context/soundContext/soundContextType.ts";
+import { SoundContext } from "../context/sound-context/sound-context.ts";
+import { Action, Sound } from "../context/sound-context/sound-context-type.ts";
 import useGamePad from "../hooks/useGamePad.ts";
 
 interface SoundProviderProps {

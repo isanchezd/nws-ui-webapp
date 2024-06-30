@@ -1,7 +1,7 @@
 import { useContext } from "react";
 
-import { ThemeContext } from "../context/themeContext/themeContext";
-import { ThemeContextType } from "../context/themeContext/themeContextType";
+import { ThemeContext } from "../context/theme-context/theme-context.ts";
+import { ThemeContextType } from "../context/theme-context/theme-context-type.ts";
 
 export const useTheme = (): ThemeContextType => {
 	const context = useContext(ThemeContext);

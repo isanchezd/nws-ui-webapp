@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useRef } from "react";
 
 import { AUDIO_ACTIONS } from "../constants/audios.ts";
-import { SoundContext } from "../context/soundContext/soundContext.ts";
-import { SoundContextType } from "../context/soundContext/soundContextType.ts";
+import { SoundContext } from "../context/sound-context/sound-context.ts";
+import { SoundContextType } from "../context/sound-context/sound-context-type.ts";
 
 function AudioPlayer() {
 	const { sound, action } = useContext<SoundContextType>(SoundContext);
@@ -20,7 +20,7 @@ function AudioPlayer() {
 		if (action.action === AUDIO_ACTIONS.pause) {
 			pause(audioRef);
 		}
-	}, [action]);
+	}, [action, sound]);
 
 	return (
 		<audio ref={audioRef}>
