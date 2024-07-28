@@ -1,15 +1,17 @@
-import { ReactElement, ReactNode, useState } from "react";
+import { createContext, ReactElement, ReactNode, useState } from "react";
 
-import { ThemeContext } from "../context/theme-context/theme-context.ts";
+import { ThemeContextType } from "./theme-context-type.ts";
 
 enum Themes {
 	light = "light",
 	dark = "dark",
 }
 
-interface ThemeProviderProps {
+type ThemeProviderProps = {
 	children: ReactNode;
-}
+};
+
+const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 function ThemeProvider({ children }: ThemeProviderProps): ReactElement {
 	const [theme, setTheme] = useState(Themes.light);
@@ -21,4 +23,4 @@ function ThemeProvider({ children }: ThemeProviderProps): ReactElement {
 	return <ThemeContext.Provider value={{ theme, toggleTheme }}>{children}</ThemeContext.Provider>;
 }
 
-export default ThemeProvider;
+export { ThemeContext, ThemeProvider };
