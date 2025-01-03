@@ -1,0 +1,64 @@
+.heading1 {
+    font-size: 2rem;
+    /* 32px en pantallas grandes */
+}
+
+.heading2 {
+    font-size: 1.75rem;
+    /* 28px en pantallas grandes */
+}
+
+.heading3 {
+    font-size: 1.5rem;
+    /* 24px en pantallas grandes */
+}
+
+.paragraph {
+    font-size: 1.25rem;
+    /* 20px en pantallas grandes */
+}
+
+@media (max-width: 1024px) {
+    .heading1 {
+        font-size: 1.75rem;
+        /* 28px */
+    }
+
+    .heading2 {
+        font-size: 1.5rem;
+        /* 24px */
+    }
+
+    .heading3 {
+        font-size: 1.25rem;
+        /* 20px */
+    }
+
+    .paragraph {
+        font-size: 1.125rem;
+        /* 18px */
+    }
+}
+
+/* Estilos para dispositivos pequeños (móviles) */
+@media (max-width: 768px) {
+    .heading1 {
+        font-size: 1.5rem;
+        /* 24px */
+    }
+
+    .heading2 {
+        font-size: 1.25rem;
+        /* 20px */
+    }
+
+    .heading3 {
+        font-size: 1.125rem;
+        /* 18px */
+    }
+
+    .paragraph {
+        font-size: 1rem;
+        /* 16px */
+    }
+}

@@ -1,0 +1,18 @@
+@import './reset.css';
+@import './fonts.css';
+@import './tokens.css';
+@import './texts.css';
+
+[theme~="light"] {
+    --bg-color: '#F0F0F0';
+}
+
+[theme~="dark"] {
+    --bg-color: '#2E2E2E';
+}
+
+
+body {
+    font-family: var(--main-font);
+    background-color: var(--bg-color);
+}
