@@ -27,6 +27,14 @@ function ControllerActionProvider({ children }: ThemeProviderProps): ReactElemen
 				name: Buttons.A,
 			}));
 		}
+		//BUTTON: B
+		if (gamepad?.buttons[1].pressed) {
+			const id: number = new Date().getTime();
+			setAction(() => ({
+				id,
+				name: Buttons.B,
+			}));
+		}
 	}, [gamepad]);
 
 	return (

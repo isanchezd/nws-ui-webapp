@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 
-function useGamePad() {
+function useGamePad(): { gamepad: Gamepad | null } {
 	const [gamepad, setGamepad] = useState<Gamepad | null>(null);
 
 	useEffect(() => {
@@ -19,6 +19,7 @@ function useGamePad() {
 }
 
 function handleConnectedGamePad(event: GamepadEvent) {
+	// eslint-disable-next-line no-console
 	console.log(
 		"Gamepad connected at index %d: %s. %d buttons, %d axes.",
 		event.gamepad.index,
@@ -29,6 +30,7 @@ function handleConnectedGamePad(event: GamepadEvent) {
 }
 
 function handleDisconnectedGamePag(event: GamepadEvent) {
+	// eslint-disable-next-line no-console
 	console.log(
 		"Gamepad disconnected at index %d: %s. %d buttons, %d axes.",
 		event.gamepad.index,

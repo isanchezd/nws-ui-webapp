@@ -1,7 +1,7 @@
 import { RefObject, useEffect, useRef, useState } from "react";
 
-import { useControllerActions } from "../hooks/useControllerActions.ts";
-import { useSound } from "../hooks/useSound.ts";
+import useControllerActions from "../hooks/useControllerActions.ts";
+import useSound from "../hooks/useSound.ts";
 
 function AudioPlayer() {
 	const { sound } = useSound();

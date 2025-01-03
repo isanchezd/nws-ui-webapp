@@ -2,7 +2,7 @@ import { createContext, ReactNode, useEffect, useState } from "react";
 
 import { AUDIOS } from "../../constants/audios.ts";
 import { Buttons } from "../../constants/gamepad.ts";
-import { useControllerActions } from "../../hooks/useControllerActions.ts";
+import useControllerActions from "../../hooks/useControllerActions.ts";
 import { Sound, SoundContextType } from "./sound-context-type.ts";
 
 type SoundProviderProps = {

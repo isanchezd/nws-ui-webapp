@@ -36,13 +36,6 @@
     font-weight: 100;
 }
 
-.loader {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-}
-
-
 @media (max-width: 768px) {
     .back {
         display: none;
