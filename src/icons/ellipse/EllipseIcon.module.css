@@ -1,7 +1,7 @@
 .icon--active {
-    fill: var(--color-light);
+    fill: var(--color-dark);
 }
 
 .icon--inactive {
-    fill: var(--color-dark);
+    fill: var(--color-light);
 }

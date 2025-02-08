@@ -1,6 +1,7 @@
 :root {
     --main-font: 'Couture', sans-serif;
-    --color-light: '#F0F0F0';
-    --color-dark: '#2E2E2E';
-    --bg-color: '#F0F0F0';
+    --color-light: #F0F0F0;
+    --color-dark: #2E2E2E;
+    --bg-color-light: #F0F0F0;
+    --bg-color-dark: #2E2E2E;
 }

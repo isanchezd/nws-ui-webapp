@@ -5,13 +5,18 @@ function useGamePad(): { gamepad: Gamepad | null } {
 
 	useEffect(() => {
 		window.addEventListener("gamepadconnected", handleConnectedGamePad);
-		window.addEventListener("gamepaddisconnected", handleDisconnectedGamePag);
+		window.addEventListener("gamepaddisconnected", handleDisconnectedGamePad);
 
-		updateGamepadStatus(setGamepad);
+		let animationFrameId: number;
+		const updateLoop = () => {
+			animationFrameId = updateGamepadStatus(setGamepad);
+		};
+		updateLoop();
 
 		return (): void => {
 			window.removeEventListener("gamepadconnected", handleConnectedGamePad);
-			window.removeEventListener("gamepaddisconnected", handleDisconnectedGamePag);
+			window.removeEventListener("gamepaddisconnected", handleDisconnectedGamePad);
+			cancelAnimationFrame(animationFrameId);
 		};
 	}, []);
 
@@ -29,7 +34,7 @@ function handleConnectedGamePad(event: GamepadEvent) {
 	);
 }
 
-function handleDisconnectedGamePag(event: GamepadEvent) {
+function handleDisconnectedGamePad(event: GamepadEvent) {
 	// eslint-disable-next-line no-console
 	console.log(
 		"Gamepad disconnected at index %d: %s. %d buttons, %d axes.",
@@ -42,16 +47,13 @@ function handleDisconnectedGamePag(event: GamepadEvent) {
 
 function updateGamepadStatus(setGamepad: Dispatch<SetStateAction<Gamepad | null>>) {
 	const gamepads = navigator.getGamepads();
+	const connectedGamepad = gamepads[0];
 
-	if (gamepads.length > 0) {
-		const index = 0;
-		const connectedGamepad = gamepads[index];
-		if (connectedGamepad) {
-			setGamepad(() => connectedGamepad);
-		}
+	if (connectedGamepad) {
+		setGamepad(connectedGamepad);
 	}
 
-	requestAnimationFrame(() => updateGamepadStatus(setGamepad));
+	return requestAnimationFrame(() => updateGamepadStatus(setGamepad));
 }
 
 export default useGamePad;
