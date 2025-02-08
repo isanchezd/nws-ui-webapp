@@ -12,18 +12,28 @@ export default function Loader() {
 	const { action } = useControllerActions();
 
 	useEffect(() => {
-		if (action) {
+		if (action?.name) {
+			const newLoader = [...loader];
+
 			if (action.name === Buttons.A) {
-				const lastIndexActive = loader.lastIndexOf(true);
-				const newLoader = [...loader];
-				newLoader[lastIndexActive] = false;
-				setLoader(newLoader);
-			} else {
-				const lastIndexActive = loader.lastIndexOf(true);
-				const newLoader = [...loader];
-				newLoader[lastIndexActive] = true;
-				setLoader(newLoader);
+				const firstIndexActive = loader.findIndex((item) => !item);
+				if (firstIndexActive === -1) {
+					newLoader[0] = true;
+
+					return;
+				}
+				newLoader[firstIndexActive] = true;
 			}
+			if (action.name === Buttons.B) {
+				const lastIndexActive = loader.lastIndexOf(true);
+				if (lastIndexActive === -1) {
+					newLoader[0] = false;
+
+					return;
+				}
+				newLoader[lastIndexActive] = false;
+			}
+			setLoader(newLoader);
 		}
 	}, [action]);
 

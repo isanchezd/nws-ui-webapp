@@ -4,11 +4,11 @@
 @import './texts.css';
 
 [theme~="light"] {
-    --bg-color: '#F0F0F0';
+    --bg-color: var(--bg-color-light);
 }
 
 [theme~="dark"] {
-    --bg-color: '#2E2E2E';
+    --bg-color: var(--bg-color-dark);
 }
 
 

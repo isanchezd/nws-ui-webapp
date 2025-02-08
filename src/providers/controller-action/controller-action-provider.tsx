@@ -1,4 +1,4 @@
-import { createContext, ReactElement, ReactNode, useEffect, useState } from "react";
+import { createContext, ReactElement, ReactNode, useEffect, useRef, useState } from "react";
 
 import { Buttons } from "../../constants/gamepad.ts";
 import useGamePad from "../../hooks/useGamePad.ts";
@@ -17,24 +17,34 @@ const ControllerActionContext = createContext<ControllerContextType>(INITITAL_ST
 function ControllerActionProvider({ children }: ThemeProviderProps): ReactElement {
 	const [action, setAction] = useState<Action>({} as Action);
 	const { gamepad } = useGamePad();
+	const previousButtonStates = useRef<Record<number, Action | null>>({});
+
+	const handleButtonPress = (buttonIndex: number, buttonName: Buttons) => {
+		if (!gamepad) {
+			return;
+		}
+
+		if (gamepad.buttons[buttonIndex]?.pressed) {
+			const newAction = {
+				id: new Date().getTime(),
+				name: buttonName,
+			};
+
+			if (
+				!previousButtonStates.current[buttonIndex] ||
+				previousButtonStates.current[buttonIndex].name !== buttonName
+			) {
+				previousButtonStates.current[buttonIndex] = newAction;
+				setAction(newAction);
+			}
+		} else {
+			previousButtonStates.current[buttonIndex] = null;
+		}
+	};
 
 	useEffect(() => {
-		//BUTTON: A
-		if (gamepad?.buttons[0].pressed) {
-			const id: number = new Date().getTime();
-			setAction(() => ({
-				id,
-				name: Buttons.A,
-			}));
-		}
-		//BUTTON: B
-		if (gamepad?.buttons[1].pressed) {
-			const id: number = new Date().getTime();
-			setAction(() => ({
-				id,
-				name: Buttons.B,
-			}));
-		}
+		handleButtonPress(0, Buttons.A); // A
+		handleButtonPress(1, Buttons.B); // B
 	}, [gamepad]);
 
 	return (
